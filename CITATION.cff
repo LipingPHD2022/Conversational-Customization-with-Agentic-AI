@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Please cite the associated manuscript when using these companion materials."
+type: dataset
+title: "Conversational Customization: Parsing Prompts and a Synthetic Example"
+version: 1.0.0
+authors:
+  - family-names: Yu
+    given-names: Yugang
+    affiliation: "School of Management, University of Science and Technology of China"
+  - family-names: Yang
+    given-names: Liping
+    affiliation: "School of Management, University of Science and Technology of China"
+    email: lipingphd@mail.ustc.edu.cn
+url: "https://github.com/LipingPHD2022/conversational-customization-prompts"
+preferred-citation:
+  type: unpublished
+  title: "Conversational Customization with Agentic AI: Coordinating Preference Learning and Design Recommendations"
+  authors:
+    - family-names: Yu
+      given-names: Yugang
+    - family-names: Yang
+      given-names: Liping
+  notes: "Research manuscript."

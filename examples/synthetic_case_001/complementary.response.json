@@ -1,0 +1,1 @@
+{"trial_id":"dress_087_r1_gpt-6-sol_comp","mu0":[-1,0,1,0,0],"fixed":{"color":"burgundy","fabric":"chiffon_lace"},"z":[1.5,0.25,0.5,-1,-3.5],"evidence":{"mu0":["mini length",null,"open neckline",null,null],"fixed":{"color":"burgundy","fabric":"chiffon lace"},"z":["我更偏向方案 B，强度大约是 6 格。","我更偏向方案 B，强度大约是 1 格。","我更偏向方案 B，强度大约是 2 格。","我更偏向方案 A，强度大约是 4 格。","我更偏向方案 A，强度大约是 14 格。"]}}

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fixed dialogue preference parsing response",
+  "description": "Structural validation for the actual parser output. Verbatim evidence and consistency with the dialogue require separate checks.",
+  "type": "object",
+  "required": [
+    "trial_id",
+    "mu0",
+    "fixed",
+    "z",
+    "evidence"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "trial_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Copy the identifier from the input prompt."
+    },
+    "mu0": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": [
+          "number",
+          "null"
+        ],
+        "minimum": -1,
+        "maximum": 1
+      },
+      "description": "Initial means, ordered as skirt length, skirt silhouette, neckline opening, train length, and sleeve length. Use 0 for a dimension not explicitly expressed in the opening statement. Use null if a numerical value cannot be interpreted, with a reason in evidence.mu0."
+    },
+    "fixed": {
+      "type": "object",
+      "description": "Color and fabric extracted from the opening statement using the canonical terms in protocol/attribute_codes.json.",
+      "required": [
+        "color",
+        "fabric"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "color": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fabric": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "z": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "description": "Answers for rounds 1 through 5. B is positive, A is negative, and each stated step equals 0.25 units. Use null when an answer cannot be interpreted, with a reason in evidence.z."
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "mu0",
+        "fixed",
+        "z"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "mu0": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "description": "For each nonzero initial mean, a nonempty verbatim excerpt from the opening statement. Null is permitted for a zero value. If the numerical value is null because it cannot be interpreted, give the reason here."
+        },
+        "fixed": {
+          "type": "object",
+          "description": "Verbatim excerpts from the opening statement supporting color and fabric.",
+          "required": [
+            "color",
+            "fabric"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "type": "string",
+              "minLength": 1
+            },
+            "fabric": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "z": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Verbatim excerpts from the corresponding customer answers. If a numerical value cannot be interpreted, give the reason in its corresponding evidence entry."
+        }
+      }
+    }
+  }
+}
